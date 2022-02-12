@@ -2,7 +2,8 @@
   "name": "pokedex",
   "version": "0.0.0",
   "engines": {
-    "node": "17.x"
+    "node": "17.x",
+    "npm":"2.x"
   },
   "scripts": {
     "ng": "ng",
