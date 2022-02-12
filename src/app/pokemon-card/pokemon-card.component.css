@@ -1,0 +1,38 @@
+.type {
+    border-radius: 2em;
+    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+.icon-fav {
+    border: 0;
+    background-color: transparent;
+    opacity:0;
+}
+.icon-fav:hover {
+    opacity:100% !important;
+}
+.card {
+    border-radius: 2em;
+}
+@media (min-width: 576px){
+    .card {
+        flex: 0 0 auto;
+        width: 48%;
+    }
+}
+
+@media (min-width: 768px){
+    .card {
+        flex: 0 0 auto;
+        width: 32.33333333%;
+    }
+}
+
+@media (min-width: 1200px){
+    .card {
+        flex: 0 0 auto;
+        width: 24%;
+    }
+}
+
+
+    

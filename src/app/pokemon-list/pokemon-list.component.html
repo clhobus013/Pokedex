@@ -1,0 +1,37 @@
+<div class="filtros col-12">
+
+    <div class="wrap d-sm-flex">
+
+        <div class="col-12 col-sm-7 py-1 px-sm-1">
+            <div class="input-group">
+                <input [(ngModel)]="searchBy" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Buscar">
+                <button type="button" class="btn btn-light"><fa-icon [icon]="faMagnifyingGlass"></fa-icon></button>
+                <button type="button" class="btn btn-light" (click)="searchBy = ''"><fa-icon [icon]="faDeleteLeft"></fa-icon></button>
+            </div>
+        </div>
+
+        <div class="col-12 col-sm-5 py-1 px-sm-1">
+            <select class="form-select " aria-label="Default select example" [(ngModel)]="orderBy" (click)="ordenar()">
+                <option selected value="0">Ordenar</option>
+                <optgroup label="Nome">
+                    <option value="1">Ascendente</option>
+                    <option value="2">Descendente</option>
+                </optgroup>
+                <optgroup label="Número nacional">
+                    <option value="3">Ascendente</option>
+                    <option value="4">Descendente</option>
+                </optgroup>
+            </select>
+        </div>
+    </div>
+
+    <div class="wrap col-12 d-flex justify-content-center">
+        <button *ngFor="let type of types; let i = index" class="type col-5 col-sm-3 col-md-2 btn m-2" id="typebtn{{i}}" [style.display]="showMoreTypes(i)" [style.background-color]="getBackgroundColor(type)" (click)="searchBy = type">{{ type }}</button>
+        <button type="button" class="col-5 col-sm-3 col-md-2 fav btn btn-light py-1 m-2" (click)="searchBy = 'favoritos'">Favoritos <fa-icon [icon]="faHeart"></fa-icon></button>
+        <button *ngIf="this.showTypes" type="button " class="circle fav btn btn-light" (click)="expandTypes()"><fa-icon [icon]="faPlus"></fa-icon></button>
+        <button *ngIf="!this.showTypes" type="button " class="circle fav btn btn-light" (click)="expandTypes()"><fa-icon [icon]="faMinus"></fa-icon></button>
+    </div>
+
+</div>
+
+<app-pokemon-card class="col-12 p-0" *ngFor="let pokemon of filterBy()" [pokemon]="pokemon">{{pokemon}}</app-pokemon-card>

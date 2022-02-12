@@ -1,0 +1,23 @@
+
+<div *ngIf="pokemon" class="card col-12  p-2 mb-2 mx-1 d-inline-block" [style.background-color]="getBackgroundColor('bg')">
+    <div class="col-12 d-flex">
+
+        <img class="col-5 p-2" src="{{ pokemon.sprites.normal }}">
+
+        <div class="col-7 wrap d-flex align-content-around justify-content-center">
+            <div class="col-12 d-flex">
+                <p class="m-0 p-1 text-center"><b># {{ pokemon.national_number }} - {{ pokemon.name }}</b></p>
+                <button class="icon-fav text-rigth" title="Favoritar" (click)="favoritar(pokemon)" [style.opacity]="favOpacity">
+                    <fa-icon [icon]="faHeart" class="text-rigth"></fa-icon>
+                </button>
+            </div>
+
+            <div class="col-12 m-1 text-center">
+                <div *ngFor="let type of pokemon.type" class="d-inline-block">
+                    <p class="type m-1 p-1 px-3" [style.background-color]="getBackgroundColor('',type)">{{type}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
